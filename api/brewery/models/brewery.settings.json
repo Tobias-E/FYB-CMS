@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "breweries",
+  "info": {
+    "name": "Brewery",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "beers": {
+      "collection": "beer",
+      "via": "breweries",
+      "dominant": true
+    }
+  }
+}

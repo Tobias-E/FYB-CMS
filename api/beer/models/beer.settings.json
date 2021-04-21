@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "beers",
+  "info": {
+    "name": "Beer",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "alkohol": {
+      "type": "decimal"
+    },
+    "image": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "venues": {
+      "via": "beers",
+      "collection": "venue",
+      "dominant": true
+    },
+    "breweries": {
+      "via": "beers",
+      "collection": "brewery"
+    }
+  }
+}
